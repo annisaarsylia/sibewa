@@ -310,17 +310,21 @@
                           <th>#</th>
                           <th>Name Beasiswa</th>
                           <th>Penyelenggara</th>
-                          <th>Status</th>
+                          <th>Deadline</th>
                           <th>Action</th>
                         </tr>
+                        @foreach ($beasiswas as $beasiswa)
                         <tr>
-                          <td>1</td>
-                          <td>KIP-K</td>
-                          <td>Kemendikbud</td>
-                          <td><div class="badge badge-success">Active</div></td>
+                          <td>{{ $num++ }}</td>
+                          <td>{{ $beasiswa->nama }}</td>
+                          <td>{{ $beasiswa->penyelenggara }}</td>
+                          <td>{{ $beasiswa->deadline }}</td>
+                          {{-- <td><div class="badge badge-success">Active</div></td> --}}
                           <td><a href="#" class="btn btn-secondary">Detail</a></td>
                         </tr>
-                        <tr>
+                            
+                        @endforeach
+                        {{-- <tr>
                           <td>2</td>
                           <td>Beasiswa BI</td>
                           <td>Bank Indonesia</td>
@@ -347,7 +351,7 @@
                           <td>Sejuta Cita</td>
                           <td><div class="badge badge-success">Active</div></td>
                           <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        </tr>
+                        </tr> --}}
                       </table>
                     </div>
                   </div>

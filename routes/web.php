@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeasiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +30,10 @@ Route::get('/inputbeasiswa', function () {
     return view('dashboard.index-0');
 })->middleware(['auth'])->name('Form-daftar-beasiswa');
 
-Route::get('/list-beasiswa', function () {
-    return view('dashboard.beasiswa');
-})->middleware(['auth'])->name('list-beasiswa');
+// Route::get('/list-beasiswa', function () {
+//     return view('dashboard.beasiswa');
+// })->middleware(['auth'])->name('list-beasiswa');
+Route::get('/list-beasiswa',[BeasiswaController::class,'index'])->middleware(['auth'])->name('list-beasiswa');
 
 Route::get('/list-pendaftar', function () {
     return view('dashboard.list-pendaftar');
