@@ -431,14 +431,25 @@
                           <th>Deadline</th>
                           <th>Action</th>
                         </tr>
+                        @foreach ($beasiswas as $beasiswa)
                         <tr>
+<<<<<<< HEAD
                           <td>1</td>
                           <td>KIP-K</td>
                           <td>Kemendikbud</td>
                           <td>14 april 2023</td>
+=======
+                          <td>{{ $num++ }}</td>
+                          <td>{{ $beasiswa->nama }}</td>
+                          <td>{{ $beasiswa->penyelenggara }}</td>
+                          <td>{{ $beasiswa->deadline }}</td>
+                          {{-- <td><div class="badge badge-success">Active</div></td> --}}
+>>>>>>> de56e55128bb544827e0e06aa2202b29aa8226d9
                           <td><a href="#" class="btn btn-secondary">Detail</a></td>
                         </tr>
-                        <tr>
+                            
+                        @endforeach
+                        {{-- <tr>
                           <td>2</td>
                           <td>Beasiswa BI</td>
                           <td>Bank Indonesia</td>
@@ -465,7 +476,7 @@
                           <td>Sejuta Cita</td>
                           <td>14 april 2023</td>
                           <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        </tr>
+                        </tr> --}}
                       </table>
                     </div>
                   </div>
