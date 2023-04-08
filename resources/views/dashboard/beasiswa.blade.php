@@ -320,7 +320,15 @@
                           <td>{{ $beasiswa->penyelenggara }}</td>
                           <td>{{ $beasiswa->deadline }}</td>
                           {{-- <td><div class="badge badge-success">Active</div></td> --}}
-                          <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                          <td>
+                            <a href="#" class="btn btn-secondary">Detail</a>
+                            <form action="{{ route('beasiswa.destroy', $beasiswa->id) }}" method="POST">
+                              @csrf
+                              @method('DELETE')
+                              <button class="btn btn-danger" type="submit">Hapus</button>
+                            </form>
+                          </td>
+                          {{-- <td><a href="#" class="btn btn-danger">Hapus</a></td> --}}
                         </tr>
                             
                         @endforeach

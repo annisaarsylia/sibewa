@@ -270,7 +270,7 @@
               </li>
               <li class="menu-header">Starter</li>
               <li class="nav-item dropdown">
-                <a href="/list-beasiswa" class="nav-link"><i class="fas fa-columns"></i> <span>List Beasiswa</span></a>
+                <a href="/beasiswa" class="nav-link"><i class="fas fa-columns"></i> <span>List Beasiswa</span></a>
                 {{-- <ul class="dropdown-menu">
                   <li><a class="nav-link" href="/list-beasiswa">List Beasiswa</a></li>
                   <li><a class="nav-link" href="/list-pendaftar">List Pendaftar</a></li>
@@ -418,39 +418,57 @@
             <h1>Input Beasiswa</h1>
           </div>
           <div class="card">
-            <form class="needs-validation" novalidate="">
+            <form class="needs-validation" novalidate=""  method="POST" action="{{ route('beasiswa.store') }}">
+              @csrf
               <div class="card-header">
                 <h4>Form Input Beasiswa</h4>
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <label>Nama Beasiswa</label>
-                  <input type="text" class="form-control" required="">
+                  <label for="nama">Nama Beasiswa</label>
+                  <input type="text" class="form-control" required=""  name="nama" id="nama">
                   <div class="invalid-feedback">
                     Wajib di isi!
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Penyelenggara</label>
-                  <input type="text" class="form-control" required="">
+                  <label for="penyelenggara">Penyelenggara</label>
+                  <input type="text" class="form-control" required=""  name="penyelenggara" id="penyelenggara">
                   <div class="invalid-feedback">
                     Wajib di isi!
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Dateline</label>
-                  <input type="date" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>Link Pendaftaran</label>
-                  <input type="text" class="form-control" required="">
+                  <label for="deadline">deadline</label>
+                  <input type="date" name="deadline" id="deadline" required="" class="form-control">
                   <div class="invalid-feedback">
                     Wajib di isi!
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Deskripsi</label>
-                  <input type="text" class="form-control" required="">
+                  <label for="sasaran">Sasaran</label>
+                  <input type="text" class="form-control" required=""  name="sasaran" id="sasaran">
+                  <div class="invalid-feedback">
+                    Wajib di isi!
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="ips">Minimal IPS</label>
+                  <input type="text" class="form-control" required=""  name="ips" id="ips">
+                  <div class="invalid-feedback">
+                    Wajib di isi!
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="booklet">Link Pendaftaran</label>
+                  <input type="text" class="form-control" required="" name="booklet" id="booklet">
+                  <div class="invalid-feedback">
+                    Wajib di isi!
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="detail">Deskripsi</label>
+                  <input type="text" class="form-control" required="" name="detail" id="detail">
                   <div class="invalid-feedback">
                     Wajib di isi!
                   </div>
@@ -463,7 +481,7 @@
               
               <div class="card-footer text-right">
                 <button class="btn btn-secondary" type="reset">Reset</button>
-                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary" type="submit">Submit</button>
               </div>
             </form>
           </div>
