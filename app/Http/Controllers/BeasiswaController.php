@@ -17,4 +17,18 @@ class BeasiswaController extends Controller
             'num' => 1
         ]);
     }
+
+    public function store(Request $request){
+        $data = collect($request)->toArray();
+        // dd(collect($request));
+        $result = Beasiswa::create($data);
+        return redirect()->route('beasiswa.index');
+    }
+
+    public function destroy(Beasiswa $beasiswa){
+        $beasiswa->delete();
+
+        return redirect()->route('beasiswa.index')
+        ->with('successDelete', 'Beasiswa Berhasil dihapus');
+    }
 }

@@ -22,7 +22,7 @@ class CreateBeasiswasTable extends Migration
             $table->string('ips');
             $table->string('detail');
             $table->string('booklet');
-            $table->string('gambar');
+            $table->string('gambar')->default('assets/img/portofolio/portofolio-1.jpg');
 
             $table->timestamps();
         });
