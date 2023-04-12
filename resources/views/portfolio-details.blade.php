@@ -17,17 +17,26 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  {{-- <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> --}}
+
+  <link href="{{asset('assets/vendor/animate.css/animate.min.css')}}"rel="stylesheet">
+  <link href="{{asset('assets/vendor/aos/aos.css')}}"rel="stylesheet">
+  <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}"rel="stylesheet">
+  <link href="{{asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}"rel="stylesheet">
+  <link href="{{asset('assets/vendor/boxicons/css/boxicons.min.css')}}"rel="stylesheet">
+  <link href="{{asset('assets/vendor/glightbox/css/glightbox.min.css')}}"rel="stylesheet">
+  <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}"rel="stylesheet">
+  <link href="{{(asset('assets/vendor/swiper/swiper-bundle.min.css'))}}"rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  {{-- <link href="assets/css/style.css" rel="stylesheet"> --}}
 
   <!-- =======================================================
   * Template Name: Anyar - v4.10.0
@@ -35,6 +44,8 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
+  {{-- <link rel="stylesheet" href="{{asset('stisla/assets/css/components.css')}}"> --}}
 </head>
 
 <body>
@@ -43,20 +54,20 @@
   <header id="header" class="fixed-top d-flex align-items-center header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Beasiswa.id</a></h1>
+      <h1 class="logo"><a href="/dashboard">Beasiswa.id</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href=index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto active" href="/dashboard">Home</a></li>
          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li> 
           <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li> -->
-          <li><a href="daftar-beasiswa.html">Daftar Beasiswa</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a href="/login">Daftar Beasiswa</a></li>
+          {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -72,7 +83,7 @@
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>
-          </li>
+          </li> --}}
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="nav-link scrollto" href="/login">Login</a></li>
           <li><a class="nav-link scrollto" href="/register">Register</a></li>
@@ -107,17 +118,18 @@
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
 
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-1.jpg" alt="">
+              
+                <div class="swiper-slide d-flex justify-content-center">
+                  <img src="/{{$data->gambar}}" style="width: 30vw; height:40vw; object-fit: cover;" alt="">
                 </div>
 
-                <div class="swiper-slide">
+                {{-- <div class="swiper-slide">
                   <img src="assets/img/portfolio/portfolio-2.jpg" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-3.jpg" alt="">
-                </div>
+                  <img src="assets/img/portfolio/portfolio-3.jpg" alt=""> --}}
+                {{-- </div> --}}
 
               </div>
               <div class="swiper-pagination"></div>
@@ -126,20 +138,19 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Beasiswa Bank Indonesia</h3>
+              <h3>{{$data->nama}}</h3>
               <ul>
-                <li><strong>Penyelenggara</strong>: Bank Indonesia</li>
-                <li><strong>Sasaran</strong>: Mahasiswa semester genap 2023</li>
-                <li><strong>Minimal IPS</strong>: 3,25</li>
-                <li><strong>Deadline</strong>: 14 April 2023</li>                
-                <li><strong>Booklet</strong>: <a href="https://drive.google.com/">Cek disini!</a></li>
+                <li><strong>Penyelenggara</strong>: {{$data->penyelenggara}}</li>
+                <li><strong>Sasaran</strong>: {{$data->sasaran}}</li>
+                <li><strong>Minimal IPS</strong>: {{$data->ips}}</li>
+                <li><strong>Deadline</strong>: {{$data->deadline}}</li>                
+                <li><strong>Booklet</strong>: <a href="{{$data->booklet}}">Cek disini!</a></li>
               </ul>
             </div>
             <div class="portfolio-description">
               <h2>Details</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
+                {{$data->detail}}              </p>
             </div>
           </div>
 
@@ -225,16 +236,24 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
+
+  {{-- <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script> --}}
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  {{-- <script src="assets/js/main.js"></script> --}}
+  <script src="{{asset('assets/js/main.js')}}"></script>
+  {{-- <link rel="stylesheet" href="{{asset('stisla/assets/css/components.css')}}"> --}}
 </body>
 
 </html>

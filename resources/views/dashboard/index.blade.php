@@ -254,7 +254,7 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Beasiswa.id</a>
+            <a href="/">Beasiswa.id</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
@@ -418,7 +418,7 @@
             <h1>Input Beasiswa</h1>
           </div>
           <div class="card">
-            <form class="needs-validation" novalidate=""  method="POST" action="{{ route('beasiswa.store') }}">
+            <form class="needs-validation" novalidate=""  method="POST" action="{{ route('beasiswa.store') }}" enctype="multipart/form-data">
               @csrf
               <div class="card-header">
                 <h4>Form Input Beasiswa</h4>
@@ -475,7 +475,7 @@
                 </div>
                     <div class="form-group">
                       <label>Poster</label>
-                      <input type="file" class="form-control">
+                      <input type="file" class="form-control" name="gambar" id="gambar">
                     </div>
               </div>
               

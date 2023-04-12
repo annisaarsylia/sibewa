@@ -254,7 +254,7 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Beasiswa.id</a>
+            <a href="/dashboard">Beasiswa.id</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
@@ -268,9 +268,9 @@
                 <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
               </ul> --}}
             </li>
-            {{-- <li class="menu-header">Starter</li> --}}
+            <li class="menu-header">Starter</li>
             <li class="nav-item dropdown">
-              <a href="/list-beasiswa" class="nav-link"><i class="fas fa-columns"></i> <span>List Beasiswa</span></a>
+              <a href="/beasiswa" class="nav-link"><i class="fas fa-columns"></i> <span>List Beasiswa</span></a>
               {{-- <ul class="dropdown-menu">
                 <li><a class="nav-link" href="/list-beasiswa">List Beasiswa</a></li>
                 <li><a class="nav-link" href="/list-pendaftar">List Pendaftar</a></li>
@@ -409,7 +409,7 @@
             </a>
           </div>
       </aside>
-      </div>
+    </div>
 
       <!-- Main Content -->
        <div class="main-content">

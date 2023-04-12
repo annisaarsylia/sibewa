@@ -19,16 +19,80 @@ class BeasiswaController extends Controller
     }
 
     public function store(Request $request){
-        $data = collect($request)->toArray();
-        // dd(collect($request));
-        $result = Beasiswa::create($data);
+        $data = new Beasiswa();
+
+
+        if($request->file('gambar')){
+            $file = $request->file('gambar');
+
+                    $name = 'img'. rand();
+                    $extension = $file->getClientOriginalExtension();
+                    $newName = $name.'.'.$extension;
+                    $input = 'uploads/'.$newName;
+                    $request->gambar->move(public_path('uploads'), $newName);
+
+                    $data->gambar = $input;
+        }
+
+        $data->nama=$request->nama;
+        $data->penyelenggara=$request->penyelenggara;
+        $data->deadline=$request->deadline;
+        $data->sasaran=$request->sasaran;
+        $data->ips=$request->ips;
+        $data->booklet=$request->booklet;
+        $data->detail=$request->detail;
+        // $data->gambar=$request->gambar;
+        $data->save();
         return redirect()->route('beasiswa.index');
     }
-
+    public function edit(Request $request, $id){
+        $data = Beasiswa::where('id',$id)->first();
+        view()->share([
+            'data'=> $data
+        ]);
+        // dd($data);
+        // $beasiswa->delete();
+        return view("dashboard.edit");
+    }
+    public function detail(Request $request, $id){
+        $data = Beasiswa::where('id',$id)->first();
+        view()->share([
+            'data'=> $data
+        ]);
+        // dd($data);
+        // $beasiswa->delete();
+        return view("portfolio-details");
+    }
+    public function update(Request $request, $id){
+        $data = Beasiswa::where('id',$id)->first();
+        $data->nama=$request->nama;
+        $data->penyelenggara=$request->penyelenggara;
+        $data->deadline=$request->deadline;
+        $data->sasaran=$request->sasaran;
+        $data->ips=$request->ips;
+        $data->booklet=$request->booklet;
+        $data->detail=$request->detail;
+        // $data->gambar=$request->gambar;
+        $data->save();
+        return redirect()->back();
+    }
     public function destroy(Beasiswa $beasiswa){
         $beasiswa->delete();
 
         return redirect()->route('beasiswa.index')
         ->with('successDelete', 'Beasiswa Berhasil dihapus');
+    }
+    public function test(Request $request){
+        $datas = Beasiswa::orderBy('id', 'DESC')->take(4)->get();
+        return view('index', [
+            'datas' => $datas
+        ]);        
+        // $data = Beasiswa::where('id',$id)->first();
+        // view()->share([
+        //     'data'=> $data
+        // ]);
+        // // dd($data);
+        // // $beasiswa->delete();
+        // return view("portfolio-details");
     }
 }

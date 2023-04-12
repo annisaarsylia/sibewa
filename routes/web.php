@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 Route::get('/detail-beasiswa', function () {
     return view('portfolio-details');
 });
@@ -32,10 +32,26 @@ Route::get('/detail-beasiswa', function () {
 
 // });
 
+Route::controller(BeasiswaController::class)->group(function(){
+    Route::get('/beasiswa','index')->name('beasiswa.index');
+    // Route::get('/beasiswa/edit/{id}','edit')->name('beasiswa.edit');
+    Route::get('/beasiswa/detail/{id}','detail')->name('beasiswa.detail-beasiswa');
+    Route::get('/','test');
+    // Route::post('/beasiswa/','store')->name('beasiswa.store');
+    // Route::post('/beasiswa/update/{id}','update')->name('beasiswa.update');
+    // Route::post('/beasiswa/detail/{id}','detail-beasiswa')->name('beasiswa.detail');
+    // Route::delete('/beasiswa/{beasiswa}','destroy')->name('beasiswa.destroy');
+
+});
+
 Route::middleware(['auth'])->group(function(){
     Route::controller(BeasiswaController::class)->group(function(){
-        Route::get('/beasiswa','index')->name('beasiswa.index');
+        // Route::get('/beasiswa','index')->name('beasiswa.index');
+        Route::get('/beasiswa/edit/{id}','edit')->name('beasiswa.edit');
+        // Route::get('/beasiswa/detail/{id}','detail')->name('beasiswa.detail-beasiswa');
         Route::post('/beasiswa/','store')->name('beasiswa.store');
+        Route::post('/beasiswa/update/{id}','update')->name('beasiswa.update');
+        // Route::post('/beasiswa/detail/{id}','detail-beasiswa')->name('beasiswa.detail');
         Route::delete('/beasiswa/{beasiswa}','destroy')->name('beasiswa.destroy');
 
     });
@@ -47,7 +63,7 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/inputbeasiswa', function () {
+Route::get('/daftar-beasiswa', function () {
     return view('dashboard.index-0');
 })->middleware(['auth'])->name('Form-daftar-beasiswa');
 
