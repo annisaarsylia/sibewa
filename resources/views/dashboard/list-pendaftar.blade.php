@@ -254,22 +254,22 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Beasiswa.id</a>
+            <a href="/">Beasiswa.id</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="dashboard">St</a>
+            <a href="/">St</a>
           </div>
           <ul class="sidebar-menu">
 
-            <li class="menu-header">Dashboard</li>
-              <li class="nav-item dropdown active">
-                <a href="/dashboard" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            {{-- <li class="menu-header">Dashboard</li> --}}
+              <li class="nav-item dropdown">
+                <a href="/dashboard" class="nav-link has"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 {{-- <ul class="dropdown-menu">
                   <li class="active"><a class="nav-link" href="index-0.html">General Dashboard</a></li>
                   <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
                 </ul> --}}
               </li>
-              <li class="menu-header">Starter</li>
+              {{-- <li class="menu-header">Starter</li> --}}
               <li class="nav-item dropdown">
                 <a href="/beasiswa" class="nav-link"><i class="fas fa-columns"></i> <span>List Beasiswa</span></a>
                 {{-- <ul class="dropdown-menu">
@@ -323,7 +323,7 @@
                   <li><a class="nav-link beep beep-sidebar" href="components-wizard.html">Wizard</a></li>
                 </ul>
               </li> --}}
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown active">
                 <a href="/list-pendaftar" class="nav-link"><i class="far fa-file-alt"></i> <span>List Pendaftar</span></a>
                 {{-- <ul class="dropdown-menu">
                   <li><a class="nav-link" href="forms-advanced-form.html">Advanced Form</a></li>

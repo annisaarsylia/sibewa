@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/detail-beasiswa', function () {
     return view('portfolio-details');
 });
+Route::get('/', function () {
+    return view('index');
+});
 
 
 // Route::controller(SesiController::class)->group(function(){

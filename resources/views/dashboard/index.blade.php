@@ -257,18 +257,18 @@
             <a href="/">Beasiswa.id</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="/">St</a>
           </div>
           <ul class="sidebar-menu">
-              <li class="menu-header">Dashboard</li>
+              {{-- <li class="menu-header">Dashboard</li> --}}
               <li class="nav-item dropdown active">
-                <a href="/dashboard" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="/dashboard" class="nav-link has"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 {{-- <ul class="dropdown-menu">
                   <li class="active"><a class="nav-link" href="index-0.html">General Dashboard</a></li>
                   <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
                 </ul> --}}
               </li>
-              <li class="menu-header">Starter</li>
+              {{-- <li class="menu-header">Starter</li> --}}
               <li class="nav-item dropdown">
                 <a href="/beasiswa" class="nav-link"><i class="fas fa-columns"></i> <span>List Beasiswa</span></a>
                 {{-- <ul class="dropdown-menu">
@@ -460,7 +460,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="booklet">Link Pendaftaran</label>
+                  <label for="booklet">Link Pendaftaran/booklet</label>
                   <input type="text" class="form-control" required="" name="booklet" id="booklet">
                   <div class="invalid-feedback">
                     Wajib di isi!
