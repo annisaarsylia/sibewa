@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BeasiswaController;
+use App\Http\Controllers\BeasiswaUserController;
+use App\Http\Controllers\ListRegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +25,6 @@ Route::get('/detail-beasiswa', function () {
 Route::get('/', function () {
     return view('index');
 });
-
 
 // Route::controller(SesiController::class)->group(function(){
 //     Route::get('/sesi/{id}','show');
@@ -66,9 +67,7 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/daftar-beasiswa', function () {
-    return view('dashboard.index-0');
-})->middleware(['auth'])->name('Form-daftar-beasiswa');
+Route::get('/daftar-beasiswa', [BeasiswaUserController::class, 'create'])->middleware(['auth'])->name('Form-daftar-beasiswa');
 
 // Route::get('/list-beasiswa', function () {
 //     return view('dashboard.beasiswa');
@@ -77,5 +76,12 @@ Route::get('/daftar-beasiswa', function () {
 Route::get('/list-pendaftar', function () {
     return view('dashboard.list-pendaftar');
 })->middleware(['auth'])->name('list-pendaftar');
+
+
+
+Route::controller(ListRegisterController::class)->group(function(){
+    Route::get('/list-register','index');
+});
+
 
 require __DIR__.'/auth.php';

@@ -331,6 +331,9 @@
                   <li><a class="nav-link" href="forms-validation.html">Validation</a></li>
                 </ul> --}}
               </li>
+              <li class="nav-item dropdown">
+                <a href="/list-register" class="nav-link"><i class="far fa-file-alt"></i> <span>List Register</span></a>
+              </li>
               {{-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-map-marker-alt"></i> <span>Google Maps</span></a>
                 <ul class="dropdown-menu">
@@ -438,7 +441,7 @@
                           <td>Irwansyah Saputra</td>
                           <td>Teknik Informatika</td>
                           <td>KIP-K</td>
-                          <td><div class="badge badge-success">Active</div></td>
+                          <td><div class="badge badge-success">Diterima</div></td>
                           <td><a href="#" class="btn btn-secondary">Detail</a></td>
                         </tr>
                         <tr>
@@ -446,7 +449,7 @@
                           <td>Hasan Basri</td>
                           <td>Multimedia Broadcasting</td>
                           <td>Bank Indonesia</td>
-                          <td><div class="badge badge-success">Active</div></td>
+                          <td><div class="badge badge-success">Diterima</div></td>
                           <td><a href="#" class="btn btn-secondary">Detail</a></td>
                         </tr>
                         <tr>
@@ -454,7 +457,7 @@
                           <td>Kusnadi</td>
                           <td>Teknik Informatika</td>
                           <td>Djarum</td>
-                          <td><div class="badge badge-danger">Not Active</div></td>
+                          <td><div class="badge badge-danger">Ditolak</div></td>
                           <td><a href="#" class="btn btn-secondary">Detail</a></td>
                         </tr>
                         <tr>
@@ -462,7 +465,7 @@
                           <td>Rizal Fakhri</td>
                           <td>Teknik Komputer</td>
                           <td>KIP-K</td>
-                          <td><div class="badge badge-success">Active</div></td>
+                          <td><div class="badge badge-success">Diterima</div></td>
                           <td><a href="#" class="btn btn-secondary">Detail</a></td>
                         </tr>
                         <tr>
@@ -470,7 +473,7 @@
                           <td>Isnap Kiswandi</td>
                           <<td>Multimedia Broadcasting</td>
                           <td>Djarum</td>
-                          <td><div class="badge badge-success">Active</div></td>
+                          <td><div class="badge badge-success">Diterima</div></td>
                           <td><a href="#" class="btn btn-secondary">Detail</a></td>
                         </tr>
                       </table>

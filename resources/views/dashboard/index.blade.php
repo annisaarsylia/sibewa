@@ -330,6 +330,9 @@
                   <li><a class="nav-link" href="forms-validation.html">Validation</a></li>
                 </ul> --}}
               </li>
+              <li class="nav-item dropdown">
+                <a href="/list-register" class="nav-link"><i class="far fa-file-alt"></i> <span>List Register</span></a>
+              </li>
               {{-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-map-marker-alt"></i> <span>Google Maps</span></a>
                 <ul class="dropdown-menu">
