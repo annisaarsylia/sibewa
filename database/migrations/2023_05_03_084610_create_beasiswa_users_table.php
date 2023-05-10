@@ -19,16 +19,17 @@ class CreateBeasiswaUsersTable extends Migration
             $table->longText('name');
             $table->longText('departement_name');
             $table->longText('major_name');
-            $table->unsignedBigInteger('phone');
+            $table->string('phone');
             $table->longText('father_job');
-            $table->unsignedBigInteger('father_salary');
+            $table->string('father_salary');
             $table->longText('mother_job');
-            $table->unsignedBigInteger('mother_salary');
+            $table->string('mother_salary');
             $table->string('parents_salary_pic')->nullable();
             // $table->string('mother_salary_pic')->nullable();
             $table->string('motivation_letter');
             $table->string('achievement');
             $table->unsignedBigInteger('beasiswa_id');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

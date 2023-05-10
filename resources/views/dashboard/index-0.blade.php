@@ -418,7 +418,7 @@
             <h1>Daftar Beasiswa</h1>
           </div>
           <div class="card">
-            <form class="needs-validation" novalidate="">
+            <form class="needs-validation" novalidate="" method="POST" enctype="multipart/form-data" >@csrf
               <div class="card-header">
                 <h4>Form Pendaftaran Beasiswa</h4>
               </div>
@@ -559,7 +559,7 @@
                     </div>
                     <div class="form-group">
                       <label>Kategori Beasiswa</label>
-                      <select class="form-control" required>
+                      <select class="form-control" name="beasiswa_id" required>
                           @foreach($beasiswas as $beasiswa)
                             <option value="{{ $beasiswa->id }}">{{ $beasiswa->nama }}</option>
                           @endforeach

@@ -68,16 +68,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/daftar-beasiswa', [BeasiswaUserController::class, 'create'])->middleware(['auth'])->name('Form-daftar-beasiswa');
+Route::post('/daftar-beasiswa', [BeasiswaUserController::class, 'store'])->middleware(['auth'])->name('Form-daftar-beasiswa-store');
 
+Route::get('/list-pendaftar', [BeasiswaUserController::class, 'view'])->middleware(['auth'])->name('Form-daftar-beasiswa-view');
 // Route::get('/list-beasiswa', function () {
 //     return view('dashboard.beasiswa');
 // })->middleware(['auth'])->name('list-beasiswa');
-
-Route::get('/list-pendaftar', function () {
-    return view('dashboard.list-pendaftar');
-})->middleware(['auth'])->name('list-pendaftar');
-
-
 
 Route::controller(ListRegisterController::class)->group(function(){
     Route::get('/list-register','index');

@@ -18,6 +18,9 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="stisla/assets/css/style.css">
   <link rel="stylesheet" href="stisla/assets/css/components.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  
+
 </head>
 
 <body>
@@ -425,9 +428,9 @@
                   <div class="card-header">
                     <h4>Form List Pendaftar Beasiswa</h4>
                   </div>
-                  <div class="card-body p-0">
+                  <div class="card-body p-4 mb-5">
                     <div class="table-responsive">
-                      <table class="table table-striped table-md">
+                      {{-- <table id="myTables" class="display table table-striped table-md">
                         <tr>
                           <th>#</th>
                           <th>Name Pendaftar</th>
@@ -476,10 +479,46 @@
                           <td><div class="badge badge-success">Diterima</div></td>
                           <td><a href="#" class="btn btn-secondary">Detail</a></td>
                         </tr>
-                      </table>
+                      </table> --}}
+
+                      <table id="myTable" class="display table table-striped table-md">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Name Pendaftar</th>
+                            <th>Jurusan</th>
+                            <th>Nama Beasiswa</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($beasiswa_users as $key=>$beasiswa_user)
+                            <tr>
+                              <td>{{$key+1}}</td>
+                              <td>{{$beasiswa_user->name}}</td>
+                              <td>{{$beasiswa_user->major_name}}</td>
+                              <td>{{$beasiswa_user->beasiswa->nama}}</td>
+                              @if($beasiswa_user->status == 0)
+                                {{-- <td>
+                                  <button type="button" class="btn btn-success">terima</button>
+                                  <button type="button" class="btn btn-danger">tolak</button>
+                                </td> --}}
+                                <td><div class="badge badge-warning">Menunggu</div></td>
+                              @elseif($beasiswa_user->status == 1)
+                                <td><div class="badge badge-success">Diterima</div></td>
+                              @elseif($beasiswa_user->status == 2)
+                                <td><div class="badge badge-danger">Ditolak</div></td>
+                              @endif
+                              <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                            </tr>
+                          @endforeach
+                        </tbody>
+                    </table>
+
                     </div>
                   </div>
-                  <div class="card-footer text-right">
+                  {{-- <div class="card-footer text-right">
                     <nav class="d-inline-block">
                       <ul class="pagination mb-0">
                         <li class="page-item disabled">
@@ -495,7 +534,7 @@
                         </li>
                       </ul>
                     </nav>
-                  </div>
+                  </div> --}}
               </div>
           </div>
           
@@ -532,5 +571,11 @@
 
   <!-- Page Specific JS File -->
   <script src="stisla/assets/js/page/index-0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+  <script type="text/javascript">
+      $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
+  </script>
 </body>
 </html>
