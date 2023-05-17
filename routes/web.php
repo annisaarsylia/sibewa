@@ -75,6 +75,10 @@ Route::get('/list-pendaftar', [BeasiswaUserController::class, 'view'])->middlewa
 //     return view('dashboard.beasiswa');
 // })->middleware(['auth'])->name('list-beasiswa');
 
+Route::get('/detail-pendaftar', function () {
+    return view('dashboard.detail-pendaftar');
+})->middleware(['auth'])->name('detail-pendaftar');
+
 Route::controller(ListRegisterController::class)->group(function(){
     Route::get('/list-register','index');
 });

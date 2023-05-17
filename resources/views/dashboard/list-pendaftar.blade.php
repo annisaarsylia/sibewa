@@ -33,7 +33,7 @@
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
             <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
           </ul>
-          <div class="search-element">
+          {{-- <div class="search-element">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
             <div class="search-backdrop"></div>
@@ -94,7 +94,7 @@
                 </a>
               </div>
             </div>
-          </div>
+          </div> --}}
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
@@ -430,57 +430,6 @@
                   </div>
                   <div class="card-body p-4 mb-5">
                     <div class="table-responsive">
-                      {{-- <table id="myTables" class="display table table-striped table-md">
-                        <tr>
-                          <th>#</th>
-                          <th>Name Pendaftar</th>
-                          <th>Jurusan</th>
-                          <th>Nama Beasiswa</th>
-                          <th>Status</th>
-                          <th>Action</th>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>Irwansyah Saputra</td>
-                          <td>Teknik Informatika</td>
-                          <td>KIP-K</td>
-                          <td><div class="badge badge-success">Diterima</div></td>
-                          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Hasan Basri</td>
-                          <td>Multimedia Broadcasting</td>
-                          <td>Bank Indonesia</td>
-                          <td><div class="badge badge-success">Diterima</div></td>
-                          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Kusnadi</td>
-                          <td>Teknik Informatika</td>
-                          <td>Djarum</td>
-                          <td><div class="badge badge-danger">Ditolak</div></td>
-                          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Rizal Fakhri</td>
-                          <td>Teknik Komputer</td>
-                          <td>KIP-K</td>
-                          <td><div class="badge badge-success">Diterima</div></td>
-                          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>Isnap Kiswandi</td>
-                          <<td>Multimedia Broadcasting</td>
-                          <td>Djarum</td>
-                          <td><div class="badge badge-success">Diterima</div></td>
-                          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        </tr>
-                      </table> --}}
-
                       <table id="myTable" class="display table table-striped table-md">
                         <thead>
                           <tr>
@@ -500,10 +449,7 @@
                               <td>{{$beasiswa_user->major_name}}</td>
                               <td>{{$beasiswa_user->beasiswa->nama}}</td>
                               @if($beasiswa_user->status == 0)
-                                {{-- <td>
-                                  <button type="button" class="btn btn-success">terima</button>
-                                  <button type="button" class="btn btn-danger">tolak</button>
-                                </td> --}}
+
                                 <td><div class="badge badge-warning">Menunggu</div></td>
                               @elseif($beasiswa_user->status == 1)
                                 <td><div class="badge badge-success">Diterima</div></td>
@@ -547,7 +493,7 @@
         </div>
       </footer>
     </div>
-  </div> --}}
+  </div>
 
   <!-- General JS Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>

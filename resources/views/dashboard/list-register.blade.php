@@ -18,6 +18,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="stisla/assets/css/style.css">
   <link rel="stylesheet" href="stisla/assets/css/components.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 </head>
 
 <body>
@@ -30,7 +31,7 @@
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
             <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
           </ul>
-          <div class="search-element">
+          {{-- <div class="search-element">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
             <div class="search-backdrop"></div>
@@ -91,7 +92,7 @@
                 </a>
               </div>
             </div>
-          </div>
+          </div> --}}
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
@@ -426,18 +427,21 @@
                   <div class="card-header">
                     <h4>Form List Register Akun Sibewa</h4>
                   </div>
-                  <div class="card-body p-0">
+                  <div class="card-body p-4 mb-5">
                     <div class="table-responsive">
-                      <table class="table table-striped table-md">
-                        <tr>
-                          <th>#</th>
-                          <th>Nama</th>
-                          <th>Email</th>
-                          {{-- <th>Jurusan</th>
-                          <th>Nama Beasiswa</th>
-                          <th>Status</th>
-                          <th>Action</th> --}}
-                        </tr>
+                      <table id="myTable" class="display table table-striped table-md">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            {{-- <th>Jurusan</th>
+                            <th>Nama Beasiswa</th>
+                            <th>Status</th>
+                            <th>Action</th> --}}
+                          </tr>
+                        </thead>
+                        <tbody>
                         @foreach($users as $key=>$user)
                           <tr>
                             <td>{{$key+1}}</td>
@@ -449,31 +453,8 @@
                             <td><a href="#" class="btn btn-secondary">Detail</a></td> --}}
                           </tr>
                         @endforeach
-                        {{-- <tr>
-                          <td>3</td>
-                          <td>Kusnadi</td>
-                          <td>Teknik Informatika</td>
-                          <td>Djarum</td>
-                          <td><div class="badge badge-danger">Ditolak</div></td>
-                          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Rizal Fakhri</td>
-                          <td>Teknik Komputer</td>
-                          <td>KIP-K</td>
-                          <td><div class="badge badge-success">Diterima</div></td>
-                          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>Isnap Kiswandi</td>
-                          <<td>Multimedia Broadcasting</td>
-                          <td>Djarum</td>
-                          <td><div class="badge badge-success">Diterima</div></td>
-                          <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                        </tr> --}}
-                      </table>
+                      </tbody>
+                    </table>
                     </div>
                   </div>
                   <div class="card-footer text-right">
@@ -505,7 +486,7 @@
         </div>
       </footer>
     </div>
-  </div> --}}
+  </div>
 
   <!-- General JS Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -529,5 +510,11 @@
 
   <!-- Page Specific JS File -->
   <script src="stisla/assets/js/page/index-0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+  <script type="text/javascript">
+      $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
+  </script>
 </body>
 </html>
