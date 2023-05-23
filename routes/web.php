@@ -71,6 +71,9 @@ Route::get('/daftar-beasiswa', [BeasiswaUserController::class, 'create'])->middl
 Route::post('/daftar-beasiswa', [BeasiswaUserController::class, 'store'])->middleware(['auth'])->name('Form-daftar-beasiswa-store');
 
 Route::get('/list-pendaftar', [BeasiswaUserController::class, 'view'])->middleware(['auth'])->name('Form-daftar-beasiswa-view');
+Route::get('/list-pendaftar-admin', [BeasiswaUserController::class, 'view'])->middleware(['auth'])->name('Form-daftar-beasiswa-view-admin');
+
+
 // Route::get('/list-beasiswa', function () {
 //     return view('dashboard.beasiswa');
 // })->middleware(['auth'])->name('list-beasiswa');

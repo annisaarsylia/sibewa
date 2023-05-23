@@ -278,6 +278,9 @@
               <li class="nav-item dropdown">
                 <a href="/detail-pendaftar" class="nav-link"><i class="far fa-file-alt"></i> <span>Halaman Detail Pendaftar</span></a>
               </li>
+              <li class="nav-item dropdown">
+                <a href="/list-pendaftar-admin" class="nav-link"><i class="far fa-file-alt"></i> <span>List Pendaftar Admin</span></a>
+              </li>
 
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
               <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">

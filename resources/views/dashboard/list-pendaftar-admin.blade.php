@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="stisla/assets/css/style.css">
   <link rel="stylesheet" href="stisla/assets/css/components.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  
 
 </head>
 
@@ -176,13 +177,6 @@
               <div class="dropdown-divider"></div>
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
-
-                {{-- <x-responsive-nav-link :href="route('logout')"
-                        onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                    {{ __('Log Out') }}
-                </x-responsive-nav-link> --}}
-                
                 <button type="submit" class="dropdown-item has-icon text-danger">
                   <i class="fas fa-sign-out-alt"></i> Logout
                 </button>
@@ -200,46 +194,36 @@
             <a href="/">St</a>
           </div>
           <ul class="sidebar-menu">
-            {{-- <li class="menu-header">Dashboard</li> --}}
-            <li class="nav-item dropdown">
-              <a href="/dashboard" class="nav-link has"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-            </li>
-            {{-- <li class="menu-header">Starter</li> --}}
-            <li class="nav-item dropdown active">
-              <a href="/beasiswa" class="nav-link"><i class="fas fa-columns"></i> <span>List Beasiswa</span></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a href="/list-pendaftar" class="nav-link"><i class="far fa-file-alt"></i> <span>List Pendaftar</span></a>
-              {{-- <ul class="dropdown-menu">
-                <li><a class="nav-link" href="forms-advanced-form.html">Advanced Form</a></li>
-                <li><a class="nav-link" href="forms-editor.html">Editor</a></li>
-                <li><a class="nav-link" href="forms-validation.html">Validation</a></li>
-              </ul> --}}
-            </li>
-            <li class="nav-item dropdown">
-              <a href="/list-register" class="nav-link"><i class="far fa-file-alt"></i> <span>List Register</span></a>
-            </li>
-          <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-              <i class="fas fa-rocket"></i> Documentation
-            </a>
-          </div>
-      </aside>
-      </div>
+              <li class="nav-item dropdown">
+                <a href="/dashboard" class="nav-link has"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="/beasiswa" class="nav-link"><i class="fas fa-columns"></i> <span>List Beasiswa</span></a>
+              </li>
+              <li class="nav-item dropdown active">
+                <a href="/list-pendaftar" class="nav-link"><i class="far fa-file-alt"></i> <span>List Pendaftar</span></a>
+
+              </li>
+              <li class="nav-item dropdown">
+                <a href="/list-register" class="nav-link"><i class="far fa-file-alt"></i> <span>List Register</span></a>
+              </li>
+            <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+              <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                <i class="fas fa-rocket"></i> Documentation
+              </a>
+            </div>
+          </aside>
+        </div>
 
       <!-- Main Content -->
        <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>List Beasiswa</h1>
-            
+            <h1>List Pendaftar Beasiswa</h1>
           </div>
                 <div class="card">
                   <div class="card-header">
-                    <h4>Form List Beasiswa</h4>
-                  </div>
-                  <div class="d-grid gap-2 d-md-flex justify-content-md-end card-header">
-                    <a href="/dashboard"> <button class="btn btn-primary me-md-2" type="button">Add Beasiswa</button></a>
+                    <h4>Form List Pendaftar Beasiswa</h4>
                   </div>
                   <div class="card-body p-4 mb-5">
                     <div class="table-responsive">
@@ -247,56 +231,35 @@
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Name Beasiswa</th>
-                            <th>Penyelenggara</th>
-                            <th>Deadline</th>
+                            <th>Name Pendaftar</th>
+                            <th>Jurusan</th>
+                            <th>Nama Beasiswa</th>
+                            <th>Status</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($beasiswas as $beasiswa)
-                          <tr>
-                            <td>{{ $num++ }}</td>
-                            <td>{{ $beasiswa->nama }}</td>
-                            <td>{{ $beasiswa->penyelenggara }}</td>
-                            <td>{{ $beasiswa->deadline }}</td>
-                            <td>
-                              <a href="{{ route('beasiswa.detail-beasiswa', $beasiswa->id) }}" class="btn btn-secondary">Detail</a>
-                              
-                              <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a>
-                              {{-- <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a> --}}
-                              <form action="{{ route('beasiswa.destroy', $beasiswa->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                {{-- <button class="btn btn-danger" type="submit">Hapus</button> --}}
-                                <li class="list-inline-item">
-                                  <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-                              </li>
-                              </form>
-                            </td>
-                          </tr>
-                              
+                          @foreach($beasiswa_users as $key=>$beasiswa_user)
+                            <tr>
+                              <td>{{$key+1}}</td>
+                              <td>{{$beasiswa_user->name}}</td>
+                              <td>{{$beasiswa_user->major_name}}</td>
+                              <td>{{$beasiswa_user->beasiswa->nama}}</td>
+                              @if($beasiswa_user->status == 0)
+
+                                <td><div class="badge badge-warning">Menunggu</div></td>
+                              @elseif($beasiswa_user->status == 1)
+                                <td><div class="badge badge-success">Diterima</div></td>
+                              @elseif($beasiswa_user->status == 2)
+                                <td><div class="badge badge-danger">Ditolak</div></td>
+                              @endif
+                              <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                            </tr>
                           @endforeach
                         </tbody>
-                      </table>
+                    </table>
+
                     </div>
-                  </div>
-                  <div class="card-footer text-right">
-                    <nav class="d-inline-block">
-                      <ul class="pagination mb-0">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                        </li>
-                      </ul>
-                    </nav>
                   </div>
               </div>
           </div>
@@ -310,7 +273,7 @@
         </div>
       </footer>
     </div>
-  </div> 
+  </div>
 
   <!-- General JS Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
