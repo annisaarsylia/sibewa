@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Beasiswa;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BeasiswaController extends Controller
 {
@@ -43,6 +45,14 @@ class BeasiswaController extends Controller
         $data->detail=$request->detail;
         // $data->gambar=$request->gambar;
         $data->save();
+
+        $details = [
+            'title' => 'Informasi Beasiswa Baru',
+            'body' => 'Hai User SIBEWA, ada informasi baru nihh. Yukk akses SIBEWA untuk melihat info detail beasiswa'
+        ];
+        foreach(User::get() as $user){
+            Mail::to($user->email)->send(new \App\Mail\MyTestMail($details));
+        }
         return redirect()->route('beasiswa.index');
     }
     public function edit(Request $request, $id){

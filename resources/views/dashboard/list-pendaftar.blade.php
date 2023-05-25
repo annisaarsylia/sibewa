@@ -446,6 +446,7 @@
                             <tr>
                               <td>{{$key+1}}</td>
                               <td>{{$beasiswa_user->name}}</td>
+                              {{-- @dd($beasiswa_user) --}}
                               <td>{{$beasiswa_user->major_name}}</td>
                               <td>{{$beasiswa_user->beasiswa->nama}}</td>
                               @if($beasiswa_user->status == 0)
