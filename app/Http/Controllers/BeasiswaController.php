@@ -53,6 +53,11 @@ class BeasiswaController extends Controller
         foreach(User::get() as $user){
             Mail::to($user->email)->send(new \App\Mail\MyTestMail($details));
         }
+
+        // foreach(User::where('role', '1')->get() as $user){
+        //     Mail::to($user->email)->send(new \App\Mail\MyTestMail($details));
+        // }
+
         return redirect()->route('beasiswa.index');
     }
     public function edit(Request $request, $id){

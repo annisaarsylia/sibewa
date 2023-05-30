@@ -185,36 +185,7 @@
           </li>
         </ul>
       </nav>
-      <div class="main-sidebar sidebar-style-2">
-        <aside id="sidebar-wrapper">
-          <div class="sidebar-brand">
-            <a href="/">Beasiswa.id</a>
-          </div>
-          <div class="sidebar-brand sidebar-brand-sm">
-            <a href="/">St</a>
-          </div>
-          <ul class="sidebar-menu">
-              <li class="nav-item dropdown">
-                <a href="/dashboard" class="nav-link has"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="/beasiswa" class="nav-link"><i class="fas fa-columns"></i> <span>List Beasiswa</span></a>
-              </li>
-              <li class="nav-item dropdown active">
-                <a href="/list-pendaftar" class="nav-link"><i class="far fa-file-alt"></i> <span>List Pendaftar</span></a>
-
-              </li>
-              <li class="nav-item dropdown">
-                <a href="/list-register" class="nav-link"><i class="far fa-file-alt"></i> <span>List Register</span></a>
-              </li>
-            <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-              <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i> Documentation
-              </a>
-            </div>
-          </aside>
-        </div>
-
+      @include('components.sidebar')
       <!-- Main Content -->
        <div class="main-content">
         <section class="section">

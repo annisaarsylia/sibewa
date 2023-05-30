@@ -4,6 +4,7 @@ use App\Http\Controllers\BeasiswaController;
 use App\Http\Controllers\BeasiswaUserController;
 use App\Http\Controllers\ListRegisterController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +77,8 @@ Route::middleware(['auth'])->group(function(){
 // Route::get('/list-beasiswa',[BeasiswaController::class,'index'])->middleware(['auth'])->name('list-beasiswa');
 
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
+    if(Auth::user()->role == 4) return redirect('/beasiswa');
+    else return view('dashboard.index');
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/daftar-beasiswa', [BeasiswaUserController::class, 'create'])->middleware(['auth'])->name('Form-daftar-beasiswa');
