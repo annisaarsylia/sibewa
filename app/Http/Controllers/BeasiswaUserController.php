@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BeasiswaUser;
 use App\Models\Beasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BeasiswaUserController extends Controller
 {
@@ -15,12 +16,18 @@ class BeasiswaUserController extends Controller
      */
     public function create()
     {
+        if(Auth::user()->role == 2) return redirect('/beasiswa');
+        if(Auth::user()->role == 3) return redirect('/beasiswa');
+
         $beasiswas = Beasiswa::all();
         return view('dashboard.index-0', compact('beasiswas'));
     }
 
     public function view()
     {
+        if(Auth::user()->role == 4) return redirect('/beasiswa');
+        if(Auth::user()->role == 3) return redirect('/beasiswa');
+
         return view('dashboard.list-pendaftar',[
             'beasiswa_users' => BeasiswaUser::all(),
             

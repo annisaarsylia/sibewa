@@ -35,7 +35,7 @@
         </li>
         @endif
 
-        @if(Auth::user()->role == 1 || Auth::user()->role == 2 || Auth::user()->role == 4)
+        @if(Auth::user()->role == 4)
         <li class="nav-item dropdown @if(Request::segment(1) == 'daftar-beasiswa') active @endif">
             <a href="/daftar-beasiswa" class="nav-link"><i class="far fa-file-alt"></i> <span>Form Daftar Beasiswa</span></a>
         </li>

@@ -6,6 +6,8 @@ use App\Models\Beasiswa;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
+
 
 class BeasiswaController extends Controller
 {
@@ -14,6 +16,8 @@ class BeasiswaController extends Controller
         $beasiswa = Beasiswa::all();
 
         // dd($beasiswa);
+        // if(Auth::user()->role == 4) return redirect('/daftar-beasiswa');
+        // if(Auth::user()->role == 3) return redirect('/dashboard');
         return view('dashboard.beasiswa',[
             'beasiswas' => $beasiswa,
             'num' => 1
@@ -61,6 +65,8 @@ class BeasiswaController extends Controller
         return redirect()->route('beasiswa.index');
     }
     public function edit(Request $request, $id){
+        if(Auth::user()->role == 4) return redirect('/daftar-beasiswa');
+
         $data = Beasiswa::where('id',$id)->first();
         view()->share([
             'data'=> $data
@@ -79,6 +85,8 @@ class BeasiswaController extends Controller
         return view("portfolio-details");
     }
     public function update(Request $request, $id){
+        if(Auth::user()->role == 4) return redirect('/daftar-beasiswa');
+
         $data = Beasiswa::where('id',$id)->first();
         $data->nama=$request->nama;
         $data->penyelenggara=$request->penyelenggara;
@@ -92,6 +100,8 @@ class BeasiswaController extends Controller
         return redirect()->back();
     }
     public function destroy(Beasiswa $beasiswa){
+        if(Auth::user()->role == 4) return redirect('/daftar-beasiswa');
+
         $beasiswa->delete();
 
         return redirect()->route('beasiswa.index')

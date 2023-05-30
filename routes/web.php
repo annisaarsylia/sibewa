@@ -93,6 +93,7 @@ Route::get('/list-pendaftar-admin', [BeasiswaUserController::class, 'view'])->mi
 // })->middleware(['auth'])->name('list-beasiswa');
 
 Route::get('/detail-pendaftar', function () {
+    if(Auth::user()->role == 4) return redirect('/beasiswa');
     return view('dashboard.detail-pendaftar');
 })->middleware(['auth'])->name('detail-pendaftar');
 
