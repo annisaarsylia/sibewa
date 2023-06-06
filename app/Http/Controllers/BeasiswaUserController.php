@@ -16,8 +16,8 @@ class BeasiswaUserController extends Controller
      */
     public function create()
     {
-        if(Auth::user()->role == 2) return redirect('/beasiswa');
-        if(Auth::user()->role == 3) return redirect('/beasiswa');
+        if(Auth::user()->role == 2) return redirect('/list-pendaftar');
+        if(Auth::user()->role == 3) return redirect('/list-pendaftar');
 
         $beasiswas = Beasiswa::all();
         return view('dashboard.index-0', compact('beasiswas'));
@@ -25,8 +25,8 @@ class BeasiswaUserController extends Controller
 
     public function view()
     {
-        if(Auth::user()->role == 4) return redirect('/beasiswa');
-        if(Auth::user()->role == 3) return redirect('/beasiswa');
+        // if(Auth::user()->role == 4) return redirect('/beasiswa');
+        // if(Auth::user()->role == 3) return redirect('/beasiswa');
 
         return view('dashboard.list-pendaftar',[
             'beasiswa_users' => BeasiswaUser::all(),
@@ -102,7 +102,11 @@ class BeasiswaUserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = BeasiswaUser::find($id);
+        // dd($user);
+        return view("dashboard.detail-pendaftar", [
+            'user' => $user 
+        ]);
     }
 
     /**
@@ -134,8 +138,13 @@ class BeasiswaUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy ($id){
+        $beasiswa_user = BeasiswaUser::where('beasiswa_id', '=' ,$id);
+            if(Auth::user()->role == 4) return redirect('/list-pendaftar');
+    
+            $beasiswa_user->delete();
+    
+            return redirect()->route('Form-daftar-beasiswa-view')
+            ->with('successDelete', 'Pendaftar Berhasil dihapus');
+        }
     }
-}

@@ -35,155 +35,13 @@
           </ul>
         </form>
         <ul class="navbar-nav navbar-right">
-          {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
-            <div class="dropdown-menu dropdown-list dropdown-menu-right">
-              <div class="dropdown-header">Messages
-                <div class="float-right">
-                  <a href="#">Mark All As Read</a>
-                </div>
-              </div>
-              <div class="dropdown-list-content dropdown-list-message">
-                <a href="#" class="dropdown-item dropdown-item-unread">
-                  <div class="dropdown-item-avatar">
-                    <img alt="image" src="stisla/assets/img/avatar/avatar-1.png" class="rounded-circle">
-                    <div class="is-online"></div>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Kusnaedi</b>
-                    <p>Hello, Bro!</p>
-                    <div class="time">10 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item dropdown-item-unread">
-                  <div class="dropdown-item-avatar">
-                    <img alt="image" src="stisla/assets/img/avatar/avatar-2.png" class="rounded-circle">
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Dedik Sugiharto</b>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                    <div class="time">12 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item dropdown-item-unread">
-                  <div class="dropdown-item-avatar">
-                    <img alt="image" src="stisla/assets/img/avatar/avatar-3.png" class="rounded-circle">
-                    <div class="is-online"></div>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Agung Ardiansyah</b>
-                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <div class="time">12 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-avatar">
-                    <img alt="image" src="stisla/assets/img/avatar/avatar-4.png" class="rounded-circle">
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Ardian Rahardiansyah</b>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
-                    <div class="time">16 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-avatar">
-                    <img alt="image" src="stisla/assets/img/avatar/avatar-5.png" class="rounded-circle">
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Alfa Zulkarnain</b>
-                    <p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-                    <div class="time">Yesterday</div>
-                  </div>
-                </a>
-              </div>
-              <div class="dropdown-footer text-center">
-                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-              </div>
-            </div>
-          </li> --}}
-          {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
-            <div class="dropdown-menu dropdown-list dropdown-menu-right">
-              <div class="dropdown-header">Notifications
-                <div class="float-right">
-                  <a href="#">Mark All As Read</a>
-                </div>
-              </div>
-              <div class="dropdown-list-content dropdown-list-icons">
-                <a href="#" class="dropdown-item dropdown-item-unread">
-                  <div class="dropdown-item-icon bg-primary text-white">
-                    <i class="fas fa-code"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    Template update is available now!
-                    <div class="time text-primary">2 Min Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-info text-white">
-                    <i class="far fa-user"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>You</b> and <b>Dedik Sugiharto</b> are now friends
-                    <div class="time">10 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-success text-white">
-                    <i class="fas fa-check"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
-                    <div class="time">12 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-danger text-white">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    Low disk space. Let's clean it!
-                    <div class="time">17 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-info text-white">
-                    <i class="fas fa-bell"></i>
-                  </div>
-                  <div class="dropdown-item-desc">
-                    Welcome to Stisla template!
-                    <div class="time">Yesterday</div>
-                  </div>
-                </a>
-              </div>
-              <div class="dropdown-footer text-center">
-                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-              </div>
-            </div>
-          </li> --}}
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="stisla/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              {{-- <div class="dropdown-title">Logged in 5 min ago</div> --}}
-              {{-- <a href="features-profile.html" class="dropdown-item has-icon">
-                <i class="far fa-user"></i> Profile
-              </a> --}}
-              {{-- <a href="features-activities.html" class="dropdown-item has-icon">
-                <i class="fas fa-bolt"></i> Activities
-              </a>
-              <a href="features-settings.html" class="dropdown-item has-icon">
-                <i class="fas fa-cog"></i> Settings
-              </a> --}}
               <div class="dropdown-divider"></div>
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
-
-                {{-- <x-responsive-nav-link :href="route('logout')"
-                        onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                    {{ __('Log Out') }}
-                </x-responsive-nav-link> --}}
-                
                 <button type="submit" class="dropdown-item has-icon text-danger">
                   <i class="fas fa-sign-out-alt"></i> Logout
                 </button>
@@ -233,7 +91,37 @@
                               @elseif($beasiswa_user->status == 2)
                                 <td><div class="badge badge-danger">Ditolak</div></td>
                               @endif
-                              <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                              <td>
+                                {{-- <a href="#" class="btn btn-secondary">Detail</a> --}}
+                                <a href="{{ route('pendaftar-detail-beasiswa', ['id' => $beasiswa_user->id]) }}" class="btn btn-secondary">Detail</a>
+
+                                {{-- <a href="#" class="btn btn-secondary">Detail</a> --}}
+                                {{-- <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a> --}}
+                                {{-- <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a> --}}
+                                {{-- <form action=<a href="{{ route('dashboard.detail-pendaftar', $beasiswa_users->id) }}" class="btn btn-secondary">Detail</a> --}}
+
+                                  {{-- <a href="#" class="btn btn-secondary">Detail</a> --}}
+                                  {{-- <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a> --}}
+                                  {{-- <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a> --}}
+                                {{-- <form action="{{ route('list-pendaftar', $beasiswa_user->id) }}" method="POST"> --}}
+                                  <a class="dropdown-item" href="{{ route('Form-daftar-beasiswa-delete', ['id' => $beasiswa_user->id]) }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('delete-form').submit();">
+                                      <i class="fa fa-trash"></i>
+                                  </a>
+
+                                  <form id="delete-form" action="{{ route('Form-daftar-beasiswa-delete', ['id' => $beasiswa_user->id]) }}" method="POST" class="d-none">
+                                      @csrf
+                                  </form>
+                                    {{-- method="POST">
+                                  @csrf
+                                  @method('DELETE') --}}
+                                  {{-- <button class="btn btn-danger" type="submit">Hapus</button> --}}
+                                  {{-- <li class="list-inline-item">
+                                    <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                </li>
+                                </form> --}}
+                              </td>
                             </tr>
                           @endforeach
                         </tbody>

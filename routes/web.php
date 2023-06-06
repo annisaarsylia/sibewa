@@ -23,6 +23,11 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/detail-beasiswa', function () {
     return view('portfolio-details');
 });
+
+// Route::get('/tes', function () {
+//     dd('portfolio-details');
+// });
+
 Route::get('/', function () {
     return view('index');
 });
@@ -85,21 +90,32 @@ Route::get('/daftar-beasiswa', [BeasiswaUserController::class, 'create'])->middl
 Route::post('/daftar-beasiswa', [BeasiswaUserController::class, 'store'])->middleware(['auth'])->name('Form-daftar-beasiswa-store');
 
 Route::get('/list-pendaftar', [BeasiswaUserController::class, 'view'])->middleware(['auth'])->name('Form-daftar-beasiswa-view');
-Route::get('/list-pendaftar-admin', [BeasiswaUserController::class, 'view'])->middleware(['auth'])->name('Form-daftar-beasiswa-view-admin');
+Route::get('/list-pendaftar/{id}', [BeasiswaUserController::class, 'show'])->middleware(['auth'])->name('pendaftar-detail-beasiswa');
+Route::post('/list-pendaftar/{id}', [BeasiswaUserController::class, 'destroy'])->middleware(['auth'])->name('Form-daftar-beasiswa-delete');
+
+
+// Route::get('/list-pendaftar-admin', [BeasiswaUserController::class, 'view'])->middleware(['auth'])->name('Form-daftar-beasiswa-view-admin');
 
 
 // Route::get('/list-beasiswa', function () {
 //     return view('dashboard.beasiswa');
 // })->middleware(['auth'])->name('list-beasiswa');
 
-Route::get('/detail-pendaftar', function () {
-    if(Auth::user()->role == 4) return redirect('/beasiswa');
-    return view('dashboard.detail-pendaftar');
-})->middleware(['auth'])->name('detail-pendaftar');
+// Route::get('/detail-pendaftar/{id}', [BeasiswaUserController::class, 'show'])->middleware(['auth'])->name('Form-detail-beasiswa');
 
-Route::controller(ListRegisterController::class)->group(function(){
-    Route::get('/list-register','index');
+
+// Route::get('/detail-pendaftar', function () {
+//     if(Auth::user()->role == 4) return redirect('/beasiswa');
+//     return view('dashboard.detail-pendaftar');
+// })->middleware(['auth'])->name('detail-pendaftar');
+
+Route::controller(ListRegisterController::class)->name('list-register.')->group(function(){
+    Route::get('/list-register','index')->name('index');
+    Route::get('/list-register-admin','registeradmin')->name('admin');
+    Route::get('/list-register-admin/{id}/edit','edit')->name('edit');
+    Route::post('/list-register-admin/update/{id}','update')->name('update');
 });
+
 
 
 require __DIR__.'/auth.php';

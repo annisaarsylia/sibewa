@@ -221,6 +221,14 @@
                         </thead>
                         <tbody>
                           @foreach ($beasiswas as $beasiswa)
+                          {{-- <tr>
+                            <td>nama</td>
+                            <td>{{ $beasiswa->nama }}</td>
+                          </tr>
+                          <tr>
+                            <td>nama Departemen</td>
+                            <td>{{ $beasiswa->nama }}</td>
+                          </tr> --}}
                           <tr>
                             <td>{{ $num++ }}</td>
                             <td>{{ $beasiswa->nama }}</td>
@@ -237,7 +245,7 @@
                                 {{-- <button class="btn btn-danger" type="submit">Hapus</button> --}}
                                 <li class="list-inline-item">
                                   <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-                              </li>
+                                </li>
                               </form>
                             </td>
                           </tr>

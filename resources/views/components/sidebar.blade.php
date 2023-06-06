@@ -23,7 +23,7 @@
         </li>
         @endif
 
-        @if(Auth::user()->role == 1 || Auth::user()->role == 2)
+        @if(Auth::user()->role == 1 || Auth::user()->role == 2 || Auth::user()->role == 3 || Auth::user()->role == 4)
         <li class="nav-item dropdown @if(Request::segment(1) == 'list-pendaftar') active @endif">
             <a href="/list-pendaftar" class="nav-link"><i class="far fa-file-alt"></i> <span>List Pendaftar</span></a>
         </li>
@@ -47,17 +47,17 @@
         </li>
         @endif
 
-        @if(Auth::user()->role == 1 || Auth::user()->role == 2)
+        {{-- @if(Auth::user()->role == 1 || Auth::user()->role == 2)
         <li class="nav-item dropdown @if(Request::segment(1) == 'list-pendaftar-admin') active @endif">
             <a href="/list-pendaftar-admin" class="nav-link"><i class="far fa-file-alt"></i> <span>List Pendaftar Admin</span></a>
         </li>
-        @endif
-
-        {{-- @if(Auth::user()->role == 1)
-        <li class="nav-item dropdown @if(Request::segment(1) == '/list-pendaftar-admin') active @endif">
-            <a href="/list-pendaftar-admin" class="nav-link"><i class="far fa-file-alt"></i> <span>Ubah Role</span></a>
-        </li>
         @endif --}}
+
+        @if(Auth::user()->role == 1)
+        <li class="nav-item dropdown @if(Request::segment(1) == '/list-register-admin') active @endif">
+            <a href="/list-register-admin" class="nav-link"><i class="far fa-file-alt"></i> <span>Ubah Role</span></a>
+        </li>
+        @endif
         
 
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
