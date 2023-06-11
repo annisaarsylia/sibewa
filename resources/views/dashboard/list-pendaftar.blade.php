@@ -60,7 +60,43 @@
           </div>
                 <div class="card">
                   <div class="card-header">
-                    <h4>Form List Pendaftar Beasiswa</h4>
+                    <div class="row w-100">
+                      <div class="col-4">
+                        <h4>Form List Pendaftar Beasiswa</h4>
+                      </div>
+                      <div class="col-8">
+                        <form action="/list-pendaftar" method="get">
+                          <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                  <label for="exampleFormControlSelect1">Filter Beasiswa</label>
+                                  <select class="form-control" id="exampleFormControlSelect1" name="beasiswa">
+                                      <option value="0" @if($request->beasiswa == 0) selected @endif>Tampilkan Semua</option>
+                                    @foreach($beasiswas as $beasiswa)
+                                      <option value="{{$beasiswa->id}}" @if($request->beasiswa == $beasiswa->id) selected @endif>{{$beasiswa->nama}}</option>
+                                    @endforeach
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-4">
+                                <div class="form-group">
+                                  <label for="exampleFormControlSelect1">Filter Tahun</label>
+                                  <select class="form-control" id="exampleFormControlSelect1" name="tahun">
+                                    <option value="0" @if($request->tahun == 0) selected @endif>Tampilkan Semua</option>
+                                    @for($i=(int) date('Y'); $i >= ((int) date('Y'))-20; $i--)
+                                      <option value="{{$i}}" @if($request->tahun == $i) selected @endif>{{$i}}</option>
+                                      @endfor
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-4">
+                                  <br>
+                                  <button type="submit" class="btn btn-primary mt-2">Cari</button>
+                              </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
                   </div>
                   <div class="card-body p-4 mb-5">
                     <div class="table-responsive">

@@ -5,6 +5,7 @@ use App\Http\Controllers\BeasiswaUserController;
 use App\Http\Controllers\ListRegisterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,15 @@ Route::middleware(['auth'])->group(function(){
         Route::delete('/beasiswa/{beasiswa}','destroy')->name('beasiswa.destroy');
 
     });
+
+    Route::POST('/list-pendaftar/ubah-status', [BeasiswaUserController::class, 'ubahStatus'])->name('Form-daftar-beasiswa');
+    
+    Route::get('/daftar-beasiswa', [BeasiswaUserController::class, 'create'])->name('Form-daftar-beasiswa');
+    Route::post('/daftar-beasiswa', [BeasiswaUserController::class, 'store'])->name('Form-daftar-beasiswa-store');
+    
+    Route::get('/list-pendaftar', [BeasiswaUserController::class, 'view'])->name('Form-daftar-beasiswa-view');
+    Route::get('/list-pendaftar/{id}', [BeasiswaUserController::class, 'show'])->name('pendaftar-detail-beasiswa');
+    Route::post('/list-pendaftar/{id}', [BeasiswaUserController::class, 'destroy'])->name('Form-daftar-beasiswa-delete');
 });
 
 // Route::get('/list-beasiswa',[BeasiswaController::class,'index'])->middleware(['auth'])->name('list-beasiswa');
@@ -86,12 +96,7 @@ Route::get('/dashboard', function () {
     else return view('dashboard.index');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/daftar-beasiswa', [BeasiswaUserController::class, 'create'])->middleware(['auth'])->name('Form-daftar-beasiswa');
-Route::post('/daftar-beasiswa', [BeasiswaUserController::class, 'store'])->middleware(['auth'])->name('Form-daftar-beasiswa-store');
 
-Route::get('/list-pendaftar', [BeasiswaUserController::class, 'view'])->middleware(['auth'])->name('Form-daftar-beasiswa-view');
-Route::get('/list-pendaftar/{id}', [BeasiswaUserController::class, 'show'])->middleware(['auth'])->name('pendaftar-detail-beasiswa');
-Route::post('/list-pendaftar/{id}', [BeasiswaUserController::class, 'destroy'])->middleware(['auth'])->name('Form-daftar-beasiswa-delete');
 
 
 // Route::get('/list-pendaftar-admin', [BeasiswaUserController::class, 'view'])->middleware(['auth'])->name('Form-daftar-beasiswa-view-admin');

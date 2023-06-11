@@ -42,7 +42,7 @@
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="stisla/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                            <img alt="image" src="/stisla/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
                             <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -72,6 +72,13 @@
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table table-striped table-md">
+                                    <tr>
+                                        <th>Status</th>
+                                        @if($user->status == 0) <th>Menunggu</th>
+                                        @elseif($user->status == 1) <th>Diterima</th>
+                                        @elseif($user->status == 2) <th>Ditolak</th>
+                                        @endif
+                                    </tr>
                                     <tr>
                                         <th>NRP</th>
                                         <th>{{ $user->nrp }}</th>
@@ -110,19 +117,19 @@
                                     </tr>
                                     <tr>
                                         <th>Slip Gaji</th>
-                                        <th>{{ $user->parents_Salary_pic }}</th>
+                                        <th><a class="btn btn-primary" href="/{{ $user->parents_salary_pic }}">Buka</a></th>
                                     </tr>
                                     <tr>
                                         <th>Motivation Latter</th>
-                                        <th>{{ $user->motivation_letter }}</th>
+                                        <th><a class="btn btn-primary" href="/{{ $user->motivation_letter }}">Buka</a></th>
                                     </tr>
                                     <tr>
                                         <th>Bukti Prestasi</th>
-                                        <th>{{ $user->achievement }}</th>
+                                        <th><a class="btn btn-primary" href="/{{ $user->achievement }}">Buka</a></th>
                                     </tr>
                                     <tr>
                                         <th>Kategori Beasiswa</th>
-                                        <th>{{ $user->beasiswa_id }}</th>
+                                        <th>{{ $user->beasiswa->nama }}</th>
                                     </tr>
 
                                 </table>
@@ -130,21 +137,9 @@
                         </div>
                         <div class="card-footer text-right">
                             <nav class="d-inline-block">
-                                <ul class="pagination mb-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1"><i
-                                                class="fas fa-chevron-left"></i></a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1 <span
-                                                class="sr-only">(current)</span></a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                                    </li>
-                                </ul>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    Ubah Status Penerimaan
+                                </button>   
                             </nav>
                         </div>
                     </div>
@@ -161,8 +156,39 @@
                 </div>
             </footer>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">                
+                <form method="POST" action="/list-pendaftar/ubah-status">@csrf
+                    <input type="hidden" name="id" value="{{$user->id}}">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ubah Status Penerimaan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Status Penerimaan</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="status">
+                                <option @if($user->status == '0') selected @endif value="0">menunggu</option>
+                                <option @if($user->status == '1') selected @endif value="1">diterima</option>
+                                <option @if($user->status == '2') selected @endif value="2">ditolak</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
     </div>
 
+  
     <!-- General JS Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

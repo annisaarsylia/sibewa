@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BeasiswaUser;
 use App\Models\Beasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class BeasiswaUserController extends Controller
@@ -23,14 +24,17 @@ class BeasiswaUserController extends Controller
         return view('dashboard.index-0', compact('beasiswas'));
     }
 
-    public function view()
+    public function view(Request $request)
     {
         // if(Auth::user()->role == 4) return redirect('/beasiswa');
         // if(Auth::user()->role == 3) return redirect('/beasiswa');
-
+        $beasiswa_users = BeasiswaUser::all();
+        if(isset($request->beasiswa) && $request->beasiswa != '0') $beasiswa_users = $beasiswa_users->where('beasiswa_id', $request->beasiswa);
+        if(isset($request->tahun) && $request->tahun != '0') $beasiswa_users = $beasiswa_users->whereBetween('created_at', [$request->tahun.'-01-01 00:00:00', $request->tahun.'-12-31 23:59:59']);
         return view('dashboard.list-pendaftar',[
-            'beasiswa_users' => BeasiswaUser::all(),
-            
+            'beasiswa_users' => $beasiswa_users,
+            'beasiswas' => Beasiswa::all(),
+            'request' => $request
         ]);
     }
 
@@ -107,6 +111,13 @@ class BeasiswaUserController extends Controller
         return view("dashboard.detail-pendaftar", [
             'user' => $user 
         ]);
+    }
+
+    public function ubahStatus(Request $request){
+        $beasiswa = BeasiswaUser::where('id', $request->id)->first();
+        $beasiswa->status = $request->status;
+        $beasiswa->save();
+        return redirect('/list-pendaftar/'.$request->id);
     }
 
     /**

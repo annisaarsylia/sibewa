@@ -204,9 +204,11 @@
                   <div class="card-header">
                     <h4>Form List Beasiswa</h4>
                   </div>
+                  @if(Auth::user()->role ==  2 && Auth::user()->role ==  1 )
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end card-header">
                     <a href="/dashboard"> <button class="btn btn-primary me-md-2" type="button">Add Beasiswa</button></a>
                   </div>
+                  @endif
                   <div class="card-body p-4 mb-5">
                     <div class="table-responsive">
                       <table id="myTable" class="display table table-striped table-md">
@@ -236,7 +238,7 @@
                             <td>{{ $beasiswa->deadline }}</td>
                             <td>
                               <a href="{{ route('beasiswa.detail-beasiswa', $beasiswa->id) }}" class="btn btn-secondary">Detail</a>
-                              
+                              @if(Auth::user()->role ==  2 && Auth::user()->role ==  1 )
                               <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a>
                               {{-- <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a> --}}
                               <form action="{{ route('beasiswa.destroy', $beasiswa->id) }}" method="POST">
@@ -247,6 +249,7 @@
                                   <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                                 </li>
                               </form>
+                              @endif
                             </td>
                           </tr>
                               

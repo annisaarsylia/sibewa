@@ -29,7 +29,7 @@
         </li>
         @endif
 
-        @if(Auth::user()->role == 1 || Auth::user()->role == 2)
+        @if(Auth::user()->role == 2)
         <li class="nav-item dropdown @if(Request::segment(1) == 'list-register') active @endif">
             <a href="/list-register" class="nav-link"><i class="far fa-file-alt"></i> <span>List Register</span></a>
         </li>
@@ -41,11 +41,11 @@
         </li>
         @endif
 
-        @if(Auth::user()->role == 1 || Auth::user()->role == 2)
+        {{-- @if(Auth::user()->role == 1 || Auth::user()->role == 2)
         <li class="nav-item dropdown @if(Request::segment(1) == 'detail-pendaftar') active @endif">
             <a href="/detail-pendaftar" class="nav-link"><i class="far fa-file-alt"></i> <span>Halaman Detail Pendaftar</span></a>
         </li>
-        @endif
+        @endif --}}
 
         {{-- @if(Auth::user()->role == 1 || Auth::user()->role == 2)
         <li class="nav-item dropdown @if(Request::segment(1) == 'list-pendaftar-admin') active @endif">

@@ -76,7 +76,7 @@ class BeasiswaController extends Controller
         return view("dashboard.edit");
     }
     public function detail(Request $request, $id){
-        if(Auth::user()->role == 4) return redirect('/daftar-beasiswa');
+        // if(Auth::user()->role == 4) return redirect('/daftar-beasiswa');
         $data = Beasiswa::where('id',$id)->first();
         view()->share([
             'data'=> $data
