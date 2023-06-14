@@ -140,6 +140,7 @@
                                   {{-- <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a> --}}
                                   {{-- <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a> --}}
                                 {{-- <form action="{{ route('list-pendaftar', $beasiswa_user->id) }}" method="POST"> --}}
+                                  @if(Auth::user()->role ==  2 || Auth::user()->role ==  1 )
                                   <a class="dropdown-item" href="{{ route('Form-daftar-beasiswa-delete', ['id' => $beasiswa_user->id]) }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('delete-form').submit();">
@@ -149,6 +150,7 @@
                                   <form id="delete-form" action="{{ route('Form-daftar-beasiswa-delete', ['id' => $beasiswa_user->id]) }}" method="POST" class="d-none">
                                       @csrf
                                   </form>
+                                  @endif
                                     {{-- method="POST">
                                   @csrf
                                   @method('DELETE') --}}

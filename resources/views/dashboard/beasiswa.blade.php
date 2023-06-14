@@ -238,7 +238,8 @@
                             <td>{{ $beasiswa->deadline }}</td>
                             <td>
                               <a href="{{ route('beasiswa.detail-beasiswa', $beasiswa->id) }}" class="btn btn-secondary">Detail</a>
-                              @if(Auth::user()->role ==  2 && Auth::user()->role ==  1 )
+
+                              @if(Auth::user()->role ==  2 || Auth::user()->role ==  1 )
                               <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a>
                               {{-- <a href="{{ route('beasiswa.edit', $beasiswa->id) }}" class="btn btn-secondary">Edit</a> --}}
                               <form action="{{ route('beasiswa.destroy', $beasiswa->id) }}" method="POST">

@@ -135,6 +135,7 @@
                                 </table>
                             </div>
                         </div>
+                        @if(Auth::user()->role ==  2 || Auth::user()->role ==  1 )                
                         <div class="card-footer text-right">
                             <nav class="d-inline-block">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -142,6 +143,7 @@
                                 </button>   
                             </nav>
                         </div>
+                        @endif
                     </div>
                 </section>
             </div>
@@ -159,7 +161,7 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-            <div class="modal-content">                
+            <div class="modal-content">
                 <form method="POST" action="/list-pendaftar/ubah-status">@csrf
                     <input type="hidden" name="id" value="{{$user->id}}">
                     <div class="modal-header">
