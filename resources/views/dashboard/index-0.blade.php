@@ -61,138 +61,149 @@
                 <h4>Form Pendaftaran Beasiswa</h4>
               </div>
               <div class="card-body">
-                <div class="form-group">
-                  <label>NRP</label>
-                  <input type="number" class="form-control" name="nrp" required>
-                  <div class="invalid-feedback">
-                    Berisi 10 angka.
-                  </div>
-                </div>
-                <div class="form-group" >
-                  <label>Nama</label>
-                  <input type="text" class="form-control" name="name" required>
-                  <div class="invalid-feedback">
-                    Isi menggunakan nama lengkap!
-                  </div>
-                </div>
-                <div class="form-group">
-                  {{-- <div class="section-title mt-0">Departemen</div> --}}
-                  <div class="form-group">
-                    <label>Nama Departemen</label>
-                    <select class="form-control" name="departement_name" required>
-                      <option value="departemen teknik elektronika">Departemen Teknik Elektronika</option>
-                        <option value="departemen teknik informatika dan komputer">Departemen Teknik Informatika dan Komputer</option>
-                        <option value="departemen teknik mekanika energi">Departemen Teknik Mekanika Energi</option>
-                        <option value="departemen teknologi multimedia kreatif">Departemen Teknologi Multimedia Kreatif</option>
-                    </select>
-                  </div>                  
-                </div>
-                <div class="form-group mb-0">
-                  {{-- <div class="section-title">Jurusan</div> --}}
                     <div class="form-group">
-                      <label>Nama Jurusan</label>
-                      <select class="form-control select2" name="major_name" required>
-                        <option value="teknik elektronika">Teknik Elektronika</option>
-                        <option value="teknik telekomunikasi">Teknik Telekomunikasi</option>
-                        <option value="teknik elektro industri">Teknik Elektro Industri</option>
-                        <option value="teknik multimedia broadcasting">Teknik Multimedia Broadcasting</option>
-                        <option value="teknik informatika">Teknik Informatika</option>
-                        <option value="teknik mekatronika">Teknik Mekatronika</option>
-                        <option value="teknik komputer">Teknik Komputer</option>
-                        <option value="teknologi game">Teknologi Game</option>
-                        <option value="teknologi rekayasa internet">Teknologi Rekayasa Internet</option>
-                        <option value="sistem pembangkit energi">Sistem Pembangkit Energi</option>
-                        <option value="sains data terapan">Sains Data Terapan</option>
-                        <option value="teknologi rekayasa multimedia">Teknologi Rekayasa Multimedia</option>
-                      </select>
-                    </div>
-                </div>
-                <div class="form-group mb-0">
-                  <label>Nomer HP</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">
-                        <i class="fas fa-phone"></i>
+                      <label>NRP 
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input type="number" class="form-control" name="nrp" required>
+                      <div class="invalid-feedback">
+                        Berisi 10 angka.
                       </div>
                     </div>
-                    <input type="number" class="form-control phone-number" name="phone" required>
-                    <div class="invalid-feedback">
-                      Minimal 11 angka.
+                    <div class="form-group" >
+                      <label>Nama
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input type="text" class="form-control" name="name" required>
+                      <div class="invalid-feedback">
+                        Isi menggunakan nama lengkap!
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-group">
-                    <label>Pekerjaan Ayah</label>
-                    <select class="form-control" name="father_job" required>
-                      <option value="dokter/perawat/tentara/polisi">Dokter/Perawat/Tentara/Polisi</option>
-                        <option value="pns">PNS</option>
-                        <option value="pegawai bumn">Pegawai BUMN</option>
-                        <option value="karyawan swasta">Karyawan Swasta</option>
-                        <option value="petani/nelayan/peternak">Petani/Nelayan/Peternak</option>
-                        <option value="other">Other</option>
-                        <div class="invalid-feedback">
-                          Isi pekerjaan orang tua dengan benar!
-                        </div>
-                    </select>
-                  </div> 
-                  <div class="form-group">
-                    <label>Pekerjaan Ibu</label>
-                    <select class="form-control" name="mother_job" required>
-                      <option value="dokter/perawat/tentara/polisi">Dokter/Perawat/Tentara/Polisi</option>
-                        <option value="pns">PNS</option>
-                        <option value="pegawai bumn">Pegawai BUMN</option>
-                        <option value="karyawan swasta">Karyawan Swasta</option>
-                        <option value="petani/nelayan/peternak">Petani/Nelayan/Peternak</option>
-                        <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                        <option value="other">Other</option>
-                        <div class="invalid-feedback">
-                          Isi pekerjaan orang tua dengan benar!
-                        </div>
-                    </select>
-                  </div> 
-                </div>
-                <div class="section-title">Penghasilan Ayah
                     <div class="form-group">
-                      <label>Isi dengan kisaran orang tua tiap bulan</label>
-                      <select class="form-control select2" name="father_salary" required>
-                        <option value="0 - 500.000">0 - 500.000</option>
-                        <option value="500.0000 - 1.000.000">500.0000 - 1.000.000</option>
-                        <option value="1.000.000 - 2.000.000">1.000.000 - 2.000.000</option>
-                        <option value="2.000.000 - 4.000.000">2.000.000 - 4.000.000</option>
-                        <option value="4.000.000 - 5.000.000">4.000.000 - 5.000.000</option>
-                        <option value="5.000.000 - 10.000.000">5.000.000 - 10.000.000</option>
-                        <option value="10.000.000++">10.000.000++</option>
-                        <option value="lainnya">Lainnya</option>
-                      </select>
+                      {{-- <div class="section-title mt-0">Departemen</div> --}}
+                      <div class="form-group">
+                        <label>Nama Departemen</label>
+                        <select class="form-control" name="departement_name" required>
+                          <option value="departemen teknik elektronika">Departemen Teknik Elektronika</option>
+                            <option value="departemen teknik informatika dan komputer">Departemen Teknik Informatika dan Komputer</option>
+                            <option value="departemen teknik mekanika energi">Departemen Teknik Mekanika Energi</option>
+                            <option value="departemen teknologi multimedia kreatif">Departemen Teknologi Multimedia Kreatif</option>
+                        </select>
+                      </div>                  
                     </div>
-                  </div>
-                  <div class="section-title">Penghasilan Ibu
+                    <div class="form-group mb-0">
+                      {{-- <div class="section-title">Jurusan</div> --}}
+                        <div class="form-group">
+                          <label>Nama Jurusan</label>
+                          <select class="form-control select2" name="major_name" required>
+                            <option value="teknik elektronika">Teknik Elektronika</option>
+                            <option value="teknik telekomunikasi">Teknik Telekomunikasi</option>
+                            <option value="teknik elektro industri">Teknik Elektro Industri</option>
+                            <option value="teknik multimedia broadcasting">Teknik Multimedia Broadcasting</option>
+                            <option value="teknik informatika">Teknik Informatika</option>
+                            <option value="teknik mekatronika">Teknik Mekatronika</option>
+                            <option value="teknik komputer">Teknik Komputer</option>
+                            <option value="teknologi game">Teknologi Game</option>
+                            <option value="teknologi rekayasa internet">Teknologi Rekayasa Internet</option>
+                            <option value="sistem pembangkit energi">Sistem Pembangkit Energi</option>
+                            <option value="sains data terapan">Sains Data Terapan</option>
+                            <option value="teknologi rekayasa multimedia">Teknologi Rekayasa Multimedia</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="form-group mb-0">
+                      <label>Nomer HP
+                        <span class="text-danger">*</span>
+                      </label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-phone"></i>
+                          </div>
+                        </div>
+                        <input type="number" class="form-control phone-number" name="phone" required>
+                        <div class="invalid-feedback">
+                          Minimal 11 angka.
+                        </div>
+                      </div>
+                    </div>
                     <div class="form-group">
-                      <label>Isi dengan kisaran orang tua tiap bulan</label>
-                      <select class="form-control select2" name="mother_salary" required>
-                        <option value="0 - 500.000">0 - 500.000</option>
-                        <option value="500.0000 - 1.000.000">500.0000 - 1.000.000</option>
-                        <option value="1.000.000 - 2.000.000">1.000.000 - 2.000.000</option>
-                        <option value="2.000.000 - 4.000.000">2.000.000 - 4.000.000</option>
-                        <option value="4.000.000 - 5.000.000">4.000.000 - 5.000.000</option>
-                        <option value="5.000.000 - 10.000.000">5.000.000 - 10.000.000</option>
-                        <option value="10.000.000++">10.000.000++</option>
-                        <option value="lainnya">Lainnya</option>
-                      </select>
+                      <label>Pekerjaan Ayah
+                        <span class="text-danger">*</span>
+                      </label>
+                        <select class="form-control" name="father_job" required>
+                          <option value="dokter/perawat/tentara/polisi">Dokter/Perawat/Tentara/Polisi</option>
+                            <option value="pns">PNS</option>
+                            <option value="pegawai bumn">Pegawai BUMN</option>
+                            <option value="karyawan swasta">Karyawan Swasta</option>
+                            <option value="petani/nelayan/peternak">Petani/Nelayan/Peternak</option>
+                            <option value="other">Other</option>
+                            <div class="invalid-feedback">
+                              Isi pekerjaan orang tua dengan benar!
+                            </div>
+                        </select>
+                    </div> 
+                    <div class="form-group">
+                      <label>Pekerjaan Ibu
+                        <span class="text-danger">*</span>
+                      </label>
+                        <select class="form-control" name="mother_job" required>
+                            <option value="dokter/perawat/tentara/polisi">Dokter/Perawat/Tentara/Polisi</option>
+                            <option value="pns">PNS</option>
+                            <option value="pegawai bumn">Pegawai BUMN</option>
+                            <option value="karyawan swasta">Karyawan Swasta</option>
+                            <option value="petani/nelayan/peternak">Petani/Nelayan/Peternak</option>
+                            <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+                            <option value="other">Other</option>
+                            <div class="invalid-feedback">
+                              Isi pekerjaan orang tua dengan benar!
+                            </div>
+                        </select>
+                    </div> 
+                    <div class="section-title">Penghasilan Ayah
+                        <div class="form-group">
+                          <label>Isi dengan kisaran orang tua tiap bulan</label>
+                          <select class="form-control select2" name="father_salary" required>
+                            <option value="0 - 500.000">0 - 500.000</option>
+                            <option value="500.0000 - 1.000.000">500.0000 - 1.000.000</option>
+                            <option value="1.000.000 - 2.000.000">1.000.000 - 2.000.000</option>
+                            <option value="2.000.000 - 4.000.000">2.000.000 - 4.000.000</option>
+                            <option value="4.000.000 - 5.000.000">4.000.000 - 5.000.000</option>
+                            <option value="5.000.000 - 10.000.000">5.000.000 - 10.000.000</option>
+                            <option value="10.000.000++">10.000.000++</option>
+                            <option value="lainnya">Lainnya</option>
+                          </select>
+                        </div>
                     </div>
-                  </div>
-                  </div>
+                    <div class="section-title">Penghasilan Ibu
+                      <div class="form-group">
+                        <label>Isi dengan kisaran orang tua tiap bulan</label>
+                        <select class="form-control select2" name="mother_salary" required>
+                          <option value="0 - 500.000">0 - 500.000</option>
+                          <option value="500.0000 - 1.000.000">500.0000 - 1.000.000</option>
+                          <option value="1.000.000 - 2.000.000">1.000.000 - 2.000.000</option>
+                          <option value="2.000.000 - 4.000.000">2.000.000 - 4.000.000</option>
+                          <option value="4.000.000 - 5.000.000">4.000.000 - 5.000.000</option>
+                          <option value="5.000.000 - 10.000.000">5.000.000 - 10.000.000</option>
+                          <option value="10.000.000++">10.000.000++</option>
+                          <option value="lainnya">Lainnya</option>
+                        </select>
+                      </div>
+                    </div>
                     <div class="form-group">
                       <label>Slip Gaji Orang Tua</label>
                       <input type="file" class="form-control" name="parents_salary_pic">
                     </div>
                     <div class="form-group">
-                      <label>Motivation Later</label>
+                      <label>Motivation Later
+                        <span class="text-danger">*</span>
+                      </label>
                       <input type="file" class="form-control" name="motivation_letter" required>
                     </div>
                     <div class="form-group">
-                      <label>Bukti Prestasi</label>
+                      <label>Bukti Prestasi
+                        <span class="text-danger">*</span>
+                      </label>
                       <input type="file" class="form-control" name="achievement" required>
                     </div>
                     <div class="form-group">
@@ -206,7 +217,10 @@
                             Isi kategori beasiswa dengan benar!
                           </div>
                       </select>
-                    </div> 
+                    </div>
+                  </div>
+
+ 
 
               
               

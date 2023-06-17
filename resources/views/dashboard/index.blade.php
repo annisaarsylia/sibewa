@@ -205,49 +205,63 @@
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <label for="nama">Nama Beasiswa</label>
+                  <label for="nama">Nama Beasiswa
+                    <span class="text-danger">*</span>
+                  </label>
                   <input type="text" class="form-control" required=""  name="nama" id="nama">
                   <div class="invalid-feedback">
                     Wajib di isi!
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="penyelenggara">Penyelenggara</label>
+                  <label for="penyelenggara">Penyelenggara
+                    <span class="text-danger">*</span>
+                  </label>
                   <input type="text" class="form-control" required=""  name="penyelenggara" id="penyelenggara">
                   <div class="invalid-feedback">
                     Wajib di isi!
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="deadline">deadline</label>
+                  <label for="deadline">deadline
+                    <span class="text-danger">*</span>
+                  </label>
                   <input type="date" name="deadline" id="deadline" required="" class="form-control">
                   <div class="invalid-feedback">
                     Wajib di isi!
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="sasaran">Sasaran</label>
+                  <label for="sasaran">Sasaran
+                    <span class="text-danger">*</span>
+                  </label>
                   <input type="text" class="form-control" required=""  name="sasaran" id="sasaran">
                   <div class="invalid-feedback">
                     Wajib di isi!
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="ips">Minimal IPS</label>
+                  <label for="ips">Minimal IPS
+                    <span class="text-danger">*</span>
+                  </label>
                   <input type="text" class="form-control" required=""  name="ips" id="ips">
                   <div class="invalid-feedback">
                     Wajib di isi!
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="booklet">Link Pendaftaran/booklet</label>
+                  <label for="booklet">Link Pendaftaran/booklet
+                    <span class="text-danger">*</span>
+                  </label>
                   <input type="text" class="form-control" required="" name="booklet" id="booklet">
                   <div class="invalid-feedback">
                     Wajib di isi!
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="detail">Deskripsi</label>
+                  <label for="detail">Deskripsi
+                    <span class="text-danger">*</span>
+                  </label>
                   <input type="text" class="form-control" required="" name="detail" id="detail">
                   <div class="invalid-feedback">
                     Wajib di isi!

@@ -120,11 +120,14 @@
                               <td>{{$beasiswa_user->major_name}}</td>
                               <td>{{$beasiswa_user->beasiswa->nama}}</td>
                               @if($beasiswa_user->status == 0)
-
                                 <td><div class="badge badge-warning">Menunggu</div></td>
                               @elseif($beasiswa_user->status == 1)
-                                <td><div class="badge badge-success">Diterima</div></td>
+                                <td><div class="badge badge-primary">Lolos Pemberkasan</div></td>
                               @elseif($beasiswa_user->status == 2)
+                              {{-- <td><div class="badge badge-primary">Lolos Interview</div></td>
+                              @elseif($beasiswa_user->status == 3) --}}
+                                <td><div class="badge badge-success">Diterima</div></td>
+                              @elseif($beasiswa_user->status == 3)
                                 <td><div class="badge badge-danger">Ditolak</div></td>
                               @endif
                               <td>

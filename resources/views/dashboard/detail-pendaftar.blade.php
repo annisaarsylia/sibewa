@@ -75,8 +75,10 @@
                                     <tr>
                                         <th>Status</th>
                                         @if($user->status == 0) <th>Menunggu</th>
-                                        @elseif($user->status == 1) <th>Diterima</th>
-                                        @elseif($user->status == 2) <th>Ditolak</th>
+                                        @elseif($user->status == 1) <th>Lolos Pemberkasan</th>
+                                        @elseif($user->status == 2) <th>Diterima</th>
+                                        @elseif($user->status == 3) <th>Ditolak</th>
+                                        {{-- @elseif($user->status == 4) <th>Ditolak</th> --}}
                                         @endif
                                     </tr>
                                     <tr>
@@ -174,10 +176,11 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Status Penerimaan</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="status">
-                                <option @if($user->status == '0') selected @endif value="0">menunggu</option>
-                                <option @if($user->status == '1') selected @endif value="1">diterima</option>
-                                <option @if($user->status == '2') selected @endif value="2">ditolak</option>
-                                </select>
+                                <option @if($user->status == '0') selected @endif value="0">Menunggu</option>
+                                <option @if($user->status == '1') selected @endif value="1">Lolos Pemberkasan</option>
+                                <option @if($user->status == '2') selected @endif value="2">Diterima</option>
+                                <option @if($user->status == '3') selected @endif value="3">Ditolak</option>
+                            </select>
                             </div>
                     </div>
                     <div class="modal-footer">
