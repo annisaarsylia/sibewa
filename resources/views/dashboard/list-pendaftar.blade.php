@@ -92,6 +92,7 @@
                               <div class="col-4">
                                   <br>
                                   <button type="submit" class="btn btn-primary mt-2">Cari</button>
+                                  <a href="/exportexcel" class="btn btn-info mt-2"> Eksport Excel </a>
                               </div>
                           </div>
                         </form>

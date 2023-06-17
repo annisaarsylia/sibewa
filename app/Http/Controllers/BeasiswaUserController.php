@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\beasiswa_usersExport;
 use App\Models\BeasiswaUser;
 use App\Models\Beasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BeasiswaUserController extends Controller
 {
@@ -157,5 +159,11 @@ class BeasiswaUserController extends Controller
     
             return redirect()->route('Form-daftar-beasiswa-view')
             ->with('successDelete', 'Pendaftar Berhasil dihapus');
-        }
     }
+    
+    public function exportexcel()
+    {
+        return Excel::download(new beasiswa_usersExport, 'datapendaftar.xlsx');
+    }
+    
+}

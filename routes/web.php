@@ -87,6 +87,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/list-pendaftar', [BeasiswaUserController::class, 'view'])->name('Form-daftar-beasiswa-view');
     Route::get('/list-pendaftar/{id}', [BeasiswaUserController::class, 'show'])->name('pendaftar-detail-beasiswa');
     Route::post('/list-pendaftar/{id}', [BeasiswaUserController::class, 'destroy'])->name('Form-daftar-beasiswa-delete');
+    Route::get('/exportexcel', [BeasiswaUserController::class, 'exportexcel'])->name('exportexcel');
 });
 
 // Route::get('/list-beasiswa',[BeasiswaController::class,'index'])->middleware(['auth'])->name('list-beasiswa');
