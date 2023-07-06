@@ -56,11 +56,32 @@
             <h1>Daftar Beasiswa</h1>
           </div>
           <div class="card">
-            <form class="needs-validation" novalidate="" method="POST" enctype="multipart/form-data" >@csrf
+            <form class="needs-validation" novalidate="" method="POST" enctype="multipart/form-data" >
+              @csrf
               <div class="card-header">
                 <h4>Form Pendaftaran Beasiswa</h4>
               </div>
               <div class="card-body">
+
+                @if ($errors->has('nrp'))
+                <div class="alert alert-danger">
+                  NRP sudah digunakan
+                </div>
+                {{-- @elseif ($errors->has('parents_salary_pic'))
+                @elseif ($errors->has('motivation_letter')) --}}
+                @elseif ($errors->has('achievement'))
+                <div class="alert alert-danger">
+                  Bukti Prestasi maksimum 2 MB
+                </div>
+                @elseif ($errors->has('parents_salary_pic'))
+                <div class="alert alert-danger">
+                  Slip Gaji Orang Tua maksimum 2 MB
+                </div>
+                @elseif ($errors->has('motivation_letter'))
+                <div class="alert alert-danger">
+                  Motivation Later maksimum 2 MB
+                </div>
+                @endif
                     <div class="form-group">
                       <label>NRP 
                         <span class="text-danger">*</span>
@@ -190,34 +211,35 @@
                         </select>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label>Slip Gaji Orang Tua</label>
-                      <input type="file" class="form-control" name="parents_salary_pic">
-                    </div>
-                    <div class="form-group">
-                      <label>Motivation Later
-                        <span class="text-danger">*</span>
-                      </label>
-                      <input type="file" class="form-control" name="motivation_letter" required>
-                    </div>
-                    <div class="form-group">
-                      <label>Bukti Prestasi
-                        <span class="text-danger">*</span>
-                      </label>
-                      <input type="file" class="form-control" name="achievement" required>
-                    </div>
-                    <div class="form-group">
-                      <label>Kategori Beasiswa</label>
-                      <select class="form-control" name="beasiswa_id" required>
-                          @foreach($beasiswas as $beasiswa)
-                            <option value="{{ $beasiswa->id }}">{{ $beasiswa->nama }}</option>
-                          @endforeach
-                          <option>Other</option>
-                          <div class="invalid-feedback">
-                            Isi kategori beasiswa dengan benar!
-                          </div>
-                      </select>
-                    </div>
+                    <div class="section-title">File Maksimum 2MB
+                      <div class="form-group">
+                        <label>Slip Gaji Orang Tua</label>
+                        <input type="file" class="form-control" name="parents_salary_pic">
+                      </div>
+                      <div class="form-group">
+                        <label>Motivation Later
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="file" class="form-control" name="motivation_letter" required>
+                      </div>
+                      <div class="form-group">
+                        <label>Bukti Prestasi
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="file" class="form-control" name="achievement" required>
+                      </div>
+                      <div class="form-group">
+                        <label>Kategori Beasiswa</label>
+                        <select class="form-control" name="beasiswa_id" required>
+                            @foreach($beasiswas as $beasiswa)
+                              <option value="{{ $beasiswa->id }}">{{ $beasiswa->nama }}</option>
+                            @endforeach
+                            <option>Other</option>
+                            <div class="invalid-feedback">
+                              Isi kategori beasiswa dengan benar!
+                            </div>
+                        </select>
+                      </div>
                   </div>
 
  

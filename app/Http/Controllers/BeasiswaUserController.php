@@ -50,6 +50,13 @@ class BeasiswaUserController extends Controller
     {
         
         $beasiswaUser = new BeasiswaUser();
+        $request->validate([
+            'nrp' => 'required|unique:beasiswa_users',
+            'parents_salary_pic' => 'required|file|max:2048',
+            'motivation_letter' => 'required|file|max:2048',
+            'achievement' => 'required|file|max:2048'
+        ]);
+
         if($request->file('parents_salary_pic')){
             $file = $request->file('parents_salary_pic');
             
@@ -161,9 +168,9 @@ class BeasiswaUserController extends Controller
             ->with('successDelete', 'Pendaftar Berhasil dihapus');
     }
     
-    public function exportexcel()
+    public function exportexcel(Request $request)
     {
-        return Excel::download(new beasiswa_usersExport, 'datapendaftar.xlsx');
+        return Excel::download(new beasiswa_usersExport($request->beasiswa, $request->tahun), 'datapendaftar.xlsx');
     }
     
 }

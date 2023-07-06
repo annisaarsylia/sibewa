@@ -85,14 +85,16 @@
                                     <option value="0" @if($request->tahun == 0) selected @endif>Tampilkan Semua</option>
                                     @for($i=(int) date('Y'); $i >= ((int) date('Y'))-20; $i--)
                                       <option value="{{$i}}" @if($request->tahun == $i) selected @endif>{{$i}}</option>
-                                      @endfor
+                                     @endfor
                                   </select>
                                 </div>
                               </div>
                               <div class="col-4">
                                   <br>
                                   <button type="submit" class="btn btn-primary mt-2">Cari</button>
-                                  <a href="/exportexcel" class="btn btn-info mt-2"> Eksport Excel </a>
+                                  @if(Auth::user()->role ==  2 || Auth::user()->role ==  1 )
+                                  <a href="/exportexcel?beasiswa={{$request->beasiswa}}&tahun={{$request->tahun}}" class="btn btn-success mt-2"> Eksport Excel </a>
+                                  @endif
                               </div>
                           </div>
                         </form>
